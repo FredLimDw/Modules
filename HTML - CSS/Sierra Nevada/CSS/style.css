@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* On a importé l url de l ecriture depuis google fonts */
+/* reset de style */
+/* color text --> #49ab9a */
+*{
+    margin: 0;
+    /* Margin veut dire la marge en dehors de l'élément */
+    padding: 0;
+    /* padding c'est la marge à l'intérieur de l'élément */
+    outline: none;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+html,body{
+    position: relative;
+    width: 100%;
+    /* width c'est la taille du bloc */
+    height: 100%;
+}
+body{
+    font-size: 1.6rem;
+    line-height: 1.333;
+    font-family: 'Montserrat', sans-serif;
+    /* On met montserra et sans serif c'est au cas où il ne trouve pas montserra il a alors une police de secours, ici sans-serif */
+    background-color: #eee;
+}
+a{
+    text-decoration: none;
+}
+ul,ol{
+    list-style: none;
+}
+/* header */
+header{
+    background-color: #fff;
+    height: 80px;
+    width: 100%;
+    display : flex;
+    justify-content : space-between;
+    align-items: center;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+body>header nav ul{
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    /* Justify content pour répartir les éléments, ici enfant de la navigation des liens */
+}
+body>header nav ul a{
+    color :#666;
+    /* les liens ont une couleur par defaut, il faut donc ciblé le a pour changé la couleur */
+}
+.logo{
+    display : flex;
+    color: #49ab9a;
+    align-items: center;
+}
+.logo p{
+    font-size: 2.2rem;
+    text-transform: uppercase;
+/* text transform : uppercase permet de mettre capital */
+/* rem : unité relative par rapport à la taille de police */
+}
+.logo img{
+    height : 50px
+}
+.search input{
+    border : none;
+    height: 27px;
+    padding-left: 5px;
+    /* 5px pcq on ajoute un leger padding dans la barre de recherche pour un peu décalé le curseur lorsqu'on ecrit dedans */
+}
+.search button{
+    width: 27px;
+    height: 27px;
+    background: url('../img/ico_search.svg') center center no-repeat;
+    border: none;
+    cursor: pointer;
+}
+.search{
+    display: flex;
+    /* on a inséré ce .search pour aligner la loupe et le champs de recherche car c'était en décalé a cause de la non compatibilité */
+}
+/* global */
+section{
+    background: url('../IMG/ponton.jpg') right center no-repeat;
+    background-size: 60% auto;
+    height: calc(100% - 80px);
+    /* 80px pcq c'était la taille du body header, on a donc utilisé la fonction calc pour ne pas que l'image bouge car l'image est en pixel et le body est en pourcentage c'est donc pour convertir*/
+    color :#49ab9a;
+}
+.title{
+    position: absolute;
+    /* absolute c'est ignorer tout ce qu'il y autour de lui sauf les parents */
+    left : 45%;
+    top : 50%;
+    width: 25%;
+    /* Width c'est la largeur */
+    transform : translate(-50%, -50%);
+    /* transform pour décaler le point d'origine mais c'est une des méthodes sinon on aurait pu faire du display flex */
+    /* Transform concerne toujours l'élément en lui même */
+}
+.title h1{
+    font-family: 'Philosopher', sans-serif;
+    font-size: 14rem;
+    font-weight: lighter;
+    /*font-weight c'est le gras de l'écriture */
+    line-height: 1;  
+}
+.title h2{
+    font-weight: normal;
+    font-size: 2.8rem;
+    padding : 15px O;
+}
+.title a{
+    display: block;
+    width: 250px;
+    height: 55px;
+    line-height: 55px;
+    border: #49ab9a 2px solid;
+    /* Une bordure a une couleur, une taille et un style */
+    color: #49ab9a;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    position: relative;
+    /* on est obligé de mettre la position relative pour qu'il comprend qu'il est relié aux éléments à laquelle il se trouve */
+    transition: color 300ms ease-in-out;
+}
+.title a :hover{
+    color: #fff;
+}
+
+.title a span{
+    position: relative;
+    z-index: 2;
+    /* Z-index c'est lorsqu'on travaille avec une profondeur comme les calques, on agit donc par couche, il ne peut s'utiliser qu'avec position absolute relative et fixe */
+}
+.title a div{
+    position: absolute;
+    width: 0%;
+    height: 55px;
+    background-color: #49ab9a;
+    top : 0;
+    z-index: 1;
+    transition: width 300 ease-in-out;
+}
+.title a:hover div{
+    width : 100%;
+}
